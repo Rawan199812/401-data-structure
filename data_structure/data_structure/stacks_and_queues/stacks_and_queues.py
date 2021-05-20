@@ -1,10 +1,12 @@
 class EmptySatckException(Exception):
     def __init__(self):
         print("This stack still empty") 
+        # return "This stack still empty"
 
 class EmptyQueueException(Exception):
     def __init__(self):
-        print("This stack still empty") 
+        # print("This Queue still empty") 
+        return "This Queue still empty"
 
 class Node:
     def __init__(self, value = None):
