@@ -1,5 +1,5 @@
 import pytest
-from linked_list.linked_list import Node, LinkedList
+from data_structure.data_structure.linked_list.linked_list import Node, LinkedList 
 myList = LinkedList()
 
 
