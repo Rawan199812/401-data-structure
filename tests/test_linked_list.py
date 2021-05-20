@@ -49,7 +49,7 @@ def add_to_the_end():
     assert actual == expected
 
 def test_collection_data(linked):
-    expected = "{yes} -> {cool} -> {so} -> {12} -> {Rawan} -> NULL"
+    expected = "(yes) -> (cool) -> (so) -> (12) -> (Rawan) -> NULL"
     actual = str(linked)
     print(actual)
     assert actual == expected
