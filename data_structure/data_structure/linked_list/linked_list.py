@@ -33,12 +33,12 @@ class LinkedList ():
         return False
     def __str__(self):
         if self.head:
-            saved_data = "{"f"{self.head.data}""} "
+            saved_data = f"({ self.head.data}) "   
             this_node = self.head
             while this_node:
                 this_node = this_node.next_node
                 if  this_node:
-                    saved_data += "-> ""{"f"{ this_node.data}""} "
+                    saved_data += "-> ""("f"{ this_node.data}"") "
                 else:
                     saved_data += "-> NULL"
         else:
@@ -104,47 +104,19 @@ class LinkedList ():
             return current.data
         except:
             return "The Value Not Found"
-    def zipLists(self,first, second):
-     current_fll = first.head
-     current_sll = second.head
-     length_fll, length_sll =0,0
-
-     temp = {}
-     while(current_fll):
-        length_fll += 1
-        current_fll = current_fll.next_node
-     while(current_sll):
-        length_sll += 1
-        current_sll = current_sll.next_node
-     if length_fll < length_sll:
-       temp =first
-       first = second
-       second =temp
-       current_fll = first.head
-       current_sll = second.head
-     linked_first = first.head
-     linked_second = second.head
-     while linked_first and linked_second:
-            first_next = linked_first.next_node
-            second_next = linked_second.next_node
-            linked_second.next_node = first_next 
-            linked_first.next_node = linked_second 
-            linked_first = first_next
-            linked_second = second_next
-            second.head = linked_second
-     return first
 
 
-myList = LinkedList()
-myList.insert(5)
-myList.insert(8)
-myList.insert(12)
-myList.append(3)
-list=LinkedList()
-myList.insert(1)
-myList.insert(5)
-myList.insert(88)
-myList.append(4)
+
+# myList = LinkedList()
+# myList.insert(5)
+# myList.insert(8)
+# myList.insert(12)
+# myList.append(3)
+# list=LinkedList()
+# myList.insert(1)
+# myList.insert(5)
+# myList.insert(88)
+# myList.append(4)
 
 # myList.insertAfter(5,6)
 # myList.insertBefore(12,4)
@@ -153,5 +125,5 @@ myList.append(4)
 # print(myList.kthFromEnd(0))
 # print(myList.includes(5))
 # print(myList.includes(3))
-print(myList.zipLists(myList,list))
+# print(myList.zipLists(myList,list))
 # print(myList.__str__())
