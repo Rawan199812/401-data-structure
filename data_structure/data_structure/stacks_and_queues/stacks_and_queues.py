@@ -74,6 +74,7 @@ class Queue:
             self.rear.next = node
             """make the new node is the back of the queue"""
             self.rear = self.rear.next
+            # self.rear = node
     def dequeue(self):
         """Method removes node from front of queue (no args) and returns the node's data"""
         if not self.is_empty():
@@ -124,12 +125,14 @@ stack = Stack()
 # print(stack.is_empty())
 # print(stack)
 
-queue = Queue()
+# queue = Queue()
  
 # queue.enqueue(" first node ")
 # queue.enqueue(" 2 node ")  
 # queue.enqueue(" 3 node ")  
 # queue.enqueue(" 4 node ") 
+# queue.enqueue(" 4 node ") 
+
 # print(queue)
 # queue.dequeue()
 # print(queue)
