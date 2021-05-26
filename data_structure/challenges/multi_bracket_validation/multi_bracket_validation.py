@@ -39,7 +39,8 @@ def multi_bracket_validation(input):
 a = "()[[Extra Characters]]"
 b = "{}(){}"
 s = "{}{Code}[Fellows](())"
+c = "{"
 t = "[({}]"
 f = "(]("
 
-print(multi_bracket_validation(f))
+print(multi_bracket_validation(c))
