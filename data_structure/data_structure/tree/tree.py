@@ -46,8 +46,22 @@ class BinaryTree:
                 traversal = self.postOrder(start.right, traversal)
             traversal += str(start.value) # Display the data part of the root (or current node)
         return list(traversal)  
-  
     
+    def find_maximum_value(self,traversal):
+        """
+        return the maximum value stored in the tree.
+        """
+        if self.root:
+            max = int(self.root.value)
+            returned_list = self.preOrder(self.root,traversal)
+            new_list = list(map(int, returned_list))
+            for i in new_list:
+                if max < new_list[i]:
+                     max = new_list[i]
+            return max
+        else:
+            return "empty tree"
+
     def print_tree(self, traversal_type): # traversal type will be provided when i print the tree
         if traversal_type == "preOrder": # check if the the traversal type is preOrder
             return self.preOrder(tree.root, "") 
@@ -87,6 +101,8 @@ class BinarySearchTree(BinaryTree):
                         break
                     current = current.right
                     
+    def print_search_tree(self):
+        return self
 
     def contains(self, value):
         """  
@@ -113,6 +129,8 @@ class BinarySearchTree(BinaryTree):
                 else:
 
                     return False
+
+
 # 1. preOrder
 # A-B-D-E-C-F-G-
 #               A          
@@ -137,7 +155,7 @@ class BinarySearchTree(BinaryTree):
 #        D    E   F     G 
 
 # Set up tree:
-tree = BinaryTree("A")
+# tree = BinaryTree("A")
 # tree.root.left = Node("B")
 # tree.root.right = Node("C")
 # tree.root.left.left = Node("D")
@@ -156,22 +174,26 @@ tree_s.add(5)
 tree_s.add(6)
 tree_s.add(7)
 tree_s.add(8)
-print(tree_s)
-print(tree_s.root.value)
-print(tree_s.root.right.value)
+print(tree_s.print_search_tree())
+# print(tree_s.root.value)
+# print(tree_s.root.right.value)
 # print(tree_s.root.left)
-print(tree_s.root.right.right.value)
-print(tree_s.root.right.right.right.value)
+# print(tree_s.root.right.right.value)
+# print(tree_s.root.right.right.right.value)
 
 # print(tree_s.contains(1))
 # Set up tree:
-# tree = BinaryTree("1")
-# tree.root.left = Node("2")
-# tree.root.right = Node("3")
-# tree.root.left.left = Node("4")
-# tree.root.left.right = Node("5")
-# tree.root.right.left = Node("6")
-# tree.root.right.right = Node("7")
+tree = BinaryTree("1")
+tree.root.left = Node("2")
+tree.root.right = Node("3")
+tree.root.left.left = Node("4")
+tree.root.left.right = Node("5")
+tree.root.right.left = Node("6")
+tree.root.right.right = Node("8")
 # print(tree.print_tree("preOrder"))
+# print("\n\n\n\n")
 # print(tree.print_tree("inOrder"))
+# print("\n\n\n\n")
+# print(tree.print_tree("postOrder"))
+# print(tree.find_maximum_value(tree.print_tree("preOrder")))
 
