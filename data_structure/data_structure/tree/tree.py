@@ -51,17 +51,17 @@ class BinaryTree:
         """
         return the maximum value stored in the tree.
         """
-        max = int(self.root.value)
-        returned_list = self.preOrder(self.root,traversal)
-        new_list = list(map(int, returned_list))
-        for i in new_list:
-            if max < new_list[i]:
-                 max = new_list[i]
-        return max
+        if self.root:
+            max = int(self.root.value)
+            returned_list = self.preOrder(self.root,traversal)
+            new_list = list(map(int, returned_list))
+            for i in new_list:
+                if max < new_list[i]:
+                     max = new_list[i]
+            return max
+        else:
+            return "empty tree"
 
-
-  
-    
     def print_tree(self, traversal_type): # traversal type will be provided when i print the tree
         if traversal_type == "preOrder": # check if the the traversal type is preOrder
             return self.preOrder(tree.root, "") 
@@ -101,6 +101,8 @@ class BinarySearchTree(BinaryTree):
                         break
                     current = current.right
                     
+    def print_search_tree(self):
+        return self
 
     def contains(self, value):
         """  
@@ -127,6 +129,8 @@ class BinarySearchTree(BinaryTree):
                 else:
 
                     return False
+
+
 # 1. preOrder
 # A-B-D-E-C-F-G-
 #               A          
@@ -162,15 +166,15 @@ class BinarySearchTree(BinaryTree):
 # print(tree.print_tree("inOrder"))
 # print(tree.print_tree("postOrder"))
 # print(tree.print_tree("wwwwwwwOrder"))
-# tree_s = BinarySearchTree(1)
-# tree_s.add(2)
-# tree_s.add(3)
-# tree_s.add(4)
-# tree_s.add(5)
-# tree_s.add(6)
-# tree_s.add(7)
-# tree_s.add(8)
-# print(tree_s)
+tree_s = BinarySearchTree(1)
+tree_s.add(2)
+tree_s.add(3)
+tree_s.add(4)
+tree_s.add(5)
+tree_s.add(6)
+tree_s.add(7)
+tree_s.add(8)
+print(tree_s.print_search_tree())
 # print(tree_s.root.value)
 # print(tree_s.root.right.value)
 # print(tree_s.root.left)
@@ -191,5 +195,5 @@ tree.root.right.right = Node("8")
 # print(tree.print_tree("inOrder"))
 # print("\n\n\n\n")
 # print(tree.print_tree("postOrder"))
-print(tree.find_maximum_value(tree.print_tree("preOrder")))
+# print(tree.find_maximum_value(tree.print_tree("preOrder")))
 
