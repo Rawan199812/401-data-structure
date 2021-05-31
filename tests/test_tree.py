@@ -16,6 +16,7 @@ def test_print_preOrder(mock_print):
     tree.root.right.right = Node("7")
     print(tree.print_tree("preOrder"))
     mock_print.assert_called_once_with(['1', '2', '4', '5', '3', '6', '8'])
+    
 
 @patch('builtins.print')
 def test_print_inOrder(mock_print):
