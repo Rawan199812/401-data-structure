@@ -11,6 +11,8 @@ Binary Tree:
 - postOrder():  return a collection from a postorder traversal
 - print_tree() :  return collection passed on the traversal order methodes 
 - find_maximum_value() : return the maximum value in a Binary Tree
+- breadth_first_traversal(): return a list of the values in the tree in the order they were encountered.
+
 
 
 Binary Search Tree:
