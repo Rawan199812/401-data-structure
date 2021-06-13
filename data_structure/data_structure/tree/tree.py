@@ -1,3 +1,30 @@
+from data_structure.data_structure.stacks_and_queues.stacks_and_queues import Queue, EmptyQueueException
+
+# class Queue:
+#     def __init__(self):
+#         self.items = []
+
+#     def enqueue(self, item):
+#         self.items.insert(0, item)
+
+#     def dequeue(self):
+#         if not self.is_empty():
+#             return self.items.pop()
+
+#     def is_empty(self):
+#         return len(self.items) == 0
+
+#     def peek(self):
+#         if not self.is_empty():
+#             return self.items[-1].value
+
+
+#     def __len__(self):
+#         return self.size()
+
+#     def size(self):
+#         return len(self.items)
+
 class Node:
     def __init__(self,value) :
         self.value = value
@@ -61,6 +88,50 @@ class BinaryTree:
             return max
         else:
             return "empty tree"
+    def breadth_first_traversal(self):
+        """
+        takes a Binary Tree as its unique input. traverse the input tree using a Breadth-first approach, and return a list of the values in the tree in the order they were encountered.
+        """
+        if self.root:
+            # print(self.root.value)
+            list1 = [self.root]
+            list2 = []
+
+            while len(list1) > 0:
+                # current = list1[1:]
+                current = list1.pop(0)
+                list2.append(current.value)
+
+                if current.left:
+                    list1.append(current.left)
+                if current.right:
+                    list1.append(current.right)
+            list2 = list(map(int, list2))
+            return list2
+        else:
+            return "empty tree"
+
+    # def breadth_first_traversal(self, start):
+
+
+    #     if start:
+    
+    #         queue = Queue()
+    #         queue.enqueue(start)
+    #         result = ""
+    #         while len(queue) > 0:
+    #             result += str(queue.peek()) 
+    #             node = queue.dequeue()
+
+    #             if node.left:
+    #                 queue.enqueue(node.left)
+    #             if node.right:
+    #                 queue.enqueue(node.right)
+    #         str_result = list(result)
+    #         new_list = list(map(int, str_result))
+    #         return new_list
+
+
 
     def print_tree(self, traversal_type): # traversal type will be provided when i print the tree
         if traversal_type == "preOrder": # check if the the traversal type is preOrder
@@ -94,15 +165,11 @@ class BinarySearchTree(BinaryTree):
                         break
 
                     current = current.left
-
                 else:
                     if current.right == None:
                         current.right = Node(value)    
                         break
                     current = current.right
-                    
-    def print_search_tree(self):
-        return self
 
     def contains(self, value):
         """  
@@ -174,7 +241,6 @@ tree_s.add(5)
 tree_s.add(6)
 tree_s.add(7)
 tree_s.add(8)
-print(tree_s.print_search_tree())
 # print(tree_s.root.value)
 # print(tree_s.root.right.value)
 # print(tree_s.root.left)
@@ -197,3 +263,5 @@ tree.root.right.right = Node("8")
 # print(tree.print_tree("postOrder"))
 # print(tree.find_maximum_value(tree.print_tree("preOrder")))
 
+# print(tree.breadth_first_traversal(tree.root))
+print(tree.breadth_first_traversal())

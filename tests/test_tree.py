@@ -16,6 +16,7 @@ def test_print_preOrder(mock_print):
     tree.root.right.right = Node("7")
     print(tree.print_tree("preOrder"))
     mock_print.assert_called_once_with(['1', '2', '4', '5', '3', '6', '8'])
+    
 
 @patch('builtins.print')
 def test_print_inOrder(mock_print):
@@ -55,6 +56,18 @@ def test_print_maximum_value(mock_print):
     print(tree.find_maximum_value(tree.print_tree("preOrder")))
     mock_print.assert_called_once_with(8)
 
+@patch('builtins.print')
+def test_print_breadth_first_traversal(mock_print):
+    tree = BinaryTree("1")
+    tree.root.left = Node("2")
+    tree.root.right = Node("3")
+    tree.root.left.left = Node("4")
+    tree.root.left.right = Node("5")
+    tree.root.right.left = Node("6")
+    tree.root.right.right = Node("7")
+    tree.root.right.right = Node("8")
+    print(tree.breadth_first_traversal())
+    mock_print.assert_called_once_with([1, 2, 3, 4, 5, 6, 8])
 # needs a root to work 
    
 # def test_empty_tree():
