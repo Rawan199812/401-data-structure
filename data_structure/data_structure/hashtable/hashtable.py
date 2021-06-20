@@ -17,7 +17,16 @@ class Hashtable:
 
         
     def get(self,key):
-        return "value"
+        index = self.hash(key)
+        if not self.buckets[index]:
+            return None
+        else:
+            current = self.buckets[index].head
+            while current:
+                if current.data[0] == key:
+                    return current.data[1]
+                current = current.next
+            return None
     def contains(self,key):
         """
         takes in the key and returns a boolean, indicating if the key exists in the table already.
@@ -40,8 +49,9 @@ class Hashtable:
 
 hash1 = Hashtable()
 print(hash1.hash("A"))
-hash1.add("A","first")
-hash1.add("A","first-b")
+hash1.add("A","first-a")
+hash1.add("B","first-b")
 
 # print(str(hash1.buckets))
 print(hash1.contains("A"))
+print(hash1.get("A"))
