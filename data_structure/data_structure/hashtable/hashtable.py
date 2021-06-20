@@ -48,10 +48,10 @@ class Hashtable:
 
 
 hash1 = Hashtable()
-print(hash1.hash("A"))
+# print(hash1.hash("A"))
 hash1.add("A","first-a")
-hash1.add("B","first-b")
+print(hash1.add("B","first-b"))
 
 # print(str(hash1.buckets))
-print(hash1.contains("A"))
-print(hash1.get("A"))
+# print(hash1.contains("A"))
+# print(hash1.get("A"))
