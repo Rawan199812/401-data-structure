@@ -18,11 +18,13 @@ def repeated_word(string):
 
     for i in reg: 
         if i in words: 
+            print(i)
+
             repeated = i
             break
         words.append(i) 
-    print(words)
-    print(repeated)
+    # print(words)
+    # print(repeated)
     return repeated
 
 

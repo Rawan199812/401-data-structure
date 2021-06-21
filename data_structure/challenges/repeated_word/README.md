@@ -11,5 +11,6 @@ time : O(n)
 space : O(n)
 
 ## White Board
+![img](repeat.jpg)
 
 [Pull Request](https://github.com/Rawan199812/401-data-structure/pull/16)
