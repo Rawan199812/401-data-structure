@@ -13,7 +13,7 @@ def test_repeated_word2():
     assert actual == excepted
 
 def test_repeated_word3():
-    excepted = "was" ## change it to summer 
+    excepted = "summer" 
     string = "It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York..."
     actual = repeated_word(string)
     assert actual == excepted
