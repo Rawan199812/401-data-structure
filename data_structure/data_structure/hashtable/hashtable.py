@@ -17,16 +17,27 @@ class Hashtable:
 
         
     def get(self,key):
-        index = self.hash(key)
-        if not self.buckets[index]:
-            return None
-        else:
-            current = self.buckets[index].head
+        # index = self.hash(key)
+        # if not self.buckets[index]:
+        #     return None
+        # else:
+        #     current = self.buckets[index].head
+        #     while current:
+        #         if current.data[0] == key:
+        #             return current.data[1]
+        #         current = current.next
+        #     return None
+        
+        hashed_key = self.hash(key)
+        if self.buckets[hashed_key]:
+            current = self.buckets[hashed_key].head
             while current:
-                if current.data[0] == key:
+                if current.data[0] == key :
                     return current.data[1]
                 current = current.next
-            return None
+            return 'this key not found'
+        else:
+            return 'this key not found'
     def contains(self,key):
         """
         takes in the key and returns a boolean, indicating if the key exists in the table already.
