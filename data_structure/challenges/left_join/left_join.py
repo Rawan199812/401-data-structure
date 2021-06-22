@@ -23,13 +23,27 @@ def left_join_hash(hash1,hash2):
     else:
         return "Empty Hash"
 
+ 
+
 hash1 = Hashtable()
 hash1.add("A","first-a")
 hash1.add("B","first-b")
+hash1.add("D","first-d")
+
 
 
 hash2 = Hashtable()
-hash2.add("C","first-c")
-hash2.add("B","first-d")
+# hash2.add("C","first-c")
+# hash2.add("B","first-d")
+
+# print(left_join_hash(hash1, hash2))
 
 print(left_join_hash(hash1, hash2))
+
+
+
+
+
+
+
+
