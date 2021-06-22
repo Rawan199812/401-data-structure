@@ -27,9 +27,9 @@ def tree_intersection(tree_1,tree_2):
         list_tree_1 = tree_1.pre_order() 
         list_tree_2 = tree_2.pre_order() 
         repeated = []
-        for i in list_tree_1:
-            if i in list_tree_2:
-                repeated.append(i)
+        for element in list_tree_1:
+            if element in list_tree_2:
+                repeated.append(element)
         if len(repeated) > 0:
             return repeated
         else:
