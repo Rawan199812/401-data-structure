@@ -94,6 +94,15 @@ if __name__ == "__main__":
     node1 = graph.add_node('node1')
     node2 = graph.add_node('node2')
     graph.add_edge(node1, node2)
-    graph.breadth_first_search(node1 , lambda v: print(v.value))
+    graph.add_edge(node1, node1)
+    # graph.breadth_first_search(node1 , lambda v: print(v.value))
+    dic = graph.get_nodes()
+    for i in dic:
+        print(i.value)
+    n = graph.get_neighbors(node1)
+    for i in n:
+        print(i.vertex.value)
+    
+    
                     
 
