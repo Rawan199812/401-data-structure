@@ -1,5 +1,6 @@
 from data_structure.data_structure.graph.graph import *
 import pytest
+from unittest.mock import patch
 
 """Node can be successfully added to the graph
 An edge can be successfully added to the graph
@@ -78,6 +79,57 @@ def test_all_neighbors_retrieved():
     expected = ['Though', 'we', "don't"]
     assert actual == expected
 
+def test_empty_graph():
+    pass
+
+## Test Breadth First
+
+@patch('builtins.print')
+def test_BFS(mock_print):
+    g1 = Graph()
+    node1 = g1.add_node("Pandora")
+    node2 = g1.add_node("Arendelle")
+    node3 = g1.add_node("Metroville")
+    node4 = g1.add_node("Monstroplolis")
+    node5 = g1.add_node("Narnia")
+    node6 = g1.add_node("Naboo")
+
+
+    g1.add_edge(node1, node2)
+
+    g1.add_edge(node2, node3)
+    g1.add_edge(node2, node4)
+
+    g1.add_edge(node3, node4)
+    g1.add_edge(node3, node5)
+    g1.add_edge(node3, node6)
+
+    g1.breadth_first_search(node1 , lambda v: print(v.value))
+    expected = {'Naboo', 'Monstroplolis', 'Arendelle', 'Pandora', 'Metroville', 'Narnia'}
+    mock_print.assert_called_with(expected)
+
+
+def test_BFS(): 
+    g2 = Graph()
+    node1 = g2.add_node("Pandora")
+    node2 = g2.add_node("Arendelle")
+    node3 = g2.add_node("Metroville")
+    node4 = g2.add_node("Monstroplolis")
+    node5 = g2.add_node("Narnia")
+    node6 = g2.add_node("Naboo")
+    g2.add_edge(node1, node2)
+
+    g2.add_edge(node2, node3)
+    g2.add_edge(node2, node4)
+
+    g2.add_edge(node3, node4)
+    g2.add_edge(node3, node5)
+    g2.add_edge(node3, node6)
+    expected = {'Naboo', 'Monstroplolis', 'Arendelle', 'Pandora', 'Metroville', 'Narnia'}
+    lst = set()
+    g2.breadth_first_search(node1, lambda ver: lst.add(ver.value))
+    actual = lst
+    assert actual == expected
 
 @pytest.fixture
 def graph_1():
