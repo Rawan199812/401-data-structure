@@ -87,6 +87,27 @@ class Graph:
                 else:
                     visited.add(neighbors_vertex)
                 queue.enqueue(neighbors_vertex)
+        
+    def breadth_first_search(self, start_vertex, action = (lambda x : None)):
+        queue = Queue()
+        visited = set() ## the set will check if the vertex visited before
+
+        queue.enqueue(start_vertex)
+        visited.add(start_vertex)
+        while len(queue): ## will break when it become 0
+            current_vertex = queue.dequeue()
+            action(current_vertex)
+            neighbors = self.get_neighbors(current_vertex) 
+
+            for edge in neighbors:
+                neighbors_vertex = edge.vertex 
+
+                if neighbors_vertex in visited:
+                    continue
+                
+                else:
+                    visited.add(neighbors_vertex)
+                queue.enqueue(neighbors_vertex) 
 
 
 if __name__ == "__main__":

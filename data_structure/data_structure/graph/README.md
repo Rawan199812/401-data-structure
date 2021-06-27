@@ -14,4 +14,8 @@ Include the weight of the connection in the returned collection
 
 5. size : method returns the total number of nodes in the graph
 
+6. breadth_first_search : method that takes Node and return a collection of nodes in the order they were visited.
+
+
 [Pull Request](https://github.com/Rawan199812/401-data-structure/pull/19)
+[Pull Request](https://github.com/Rawan199812/401-data-structure/pull/20)
