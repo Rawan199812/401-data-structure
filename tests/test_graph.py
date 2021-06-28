@@ -117,8 +117,8 @@ def test_BFS():
     node4 = g2.add_node("Monstroplolis")
     node5 = g2.add_node("Narnia")
     node6 = g2.add_node("Naboo")
+    
     g2.add_edge(node1, node2)
-
     g2.add_edge(node2, node3)
     g2.add_edge(node2, node4)
 
