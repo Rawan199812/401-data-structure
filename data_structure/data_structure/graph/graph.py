@@ -172,8 +172,11 @@ class Graph:
     def DFS(self):
         all_vertex = self.get_nodes()
         lst = []
+        if all_vertex:
         ## Get the first element 
-        root = next(iter(all_vertex))
+             root = next(iter(all_vertex))
+        else:
+            return "empty graph"
         def rec(root,lst):
             if root not in lst:
                 lst.append(root)

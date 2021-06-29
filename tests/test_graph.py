@@ -150,6 +150,23 @@ def test_trip_three(trip):
     expected = (True,'$ None')
     assert actual == expected
 
+    #=============Test DFS
+def test_depth_first(DFS):
+    
+    obj = DFS.DFS() 
+    actual = ""
+    for i in obj:
+        actual += i.value
+    expected = "abcgdehf"
+    assert actual == expected
+
+def test_depth_first_empty():
+    empty_g = Graph()
+
+    actual =  empty_g.DFS() 
+    expected = "empty graph"
+    assert actual == expected
+
 
 
 
@@ -207,6 +224,32 @@ def trip():
     
     
     return gs
+
+
+@pytest.fixture
+
+def DFS():
+    graph = Graph()
+    a = graph.add_node('a')
+    b = graph.add_node('b')
+    c = graph.add_node('c')
+    d = graph.add_node('d')
+    e = graph.add_node('e')
+    f = graph.add_node('f')
+    g = graph.add_node('g')
+    h = graph.add_node('h')
+    graph.add_edge(a,b)
+    graph.add_edge(a,d)
+    graph.add_edge(b,c)
+    graph.add_edge(b,d)
+    graph.add_edge(c,g)
+    graph.add_edge(d,e)
+    graph.add_edge(d,h)
+    graph.add_edge(d,f)
+    graph.add_edge(h,f)
+ 
+    return graph
+
 
 
 
