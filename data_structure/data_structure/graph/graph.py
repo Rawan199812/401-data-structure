@@ -132,6 +132,10 @@ class Graph:
         return bool
 
     def business_trip(self, trips):
+        """
+        take grap and list of city names and returns bollean value with the cost or null
+      
+        """
         all_vertex = self._adjacency_list.keys()
         vertex_values = self.get_tuple_vertex()
         found = self.contains_all(vertex_values)
@@ -166,11 +170,7 @@ class Graph:
         else:
             return False, "$0"
 
-#    if not calc_weight(v, cost) == None:
-#                 return found,f'$ {calc_weight(v, cost)}'
-                
-#         else:
-#                 return False, "$ 0"
+
 
 
 

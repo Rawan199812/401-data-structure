@@ -16,6 +16,8 @@ Include the weight of the connection in the returned collection
 
 6. breadth_first_search : method that takes Node and return a collection of nodes in the order they were visited.
 
+4. business-trip: take grap and list of city names and returns bollean value with the cost or null
+
 
 [Pull Request](https://github.com/Rawan199812/401-data-structure/pull/19)
 [Pull Request](https://github.com/Rawan199812/401-data-structure/pull/20)
