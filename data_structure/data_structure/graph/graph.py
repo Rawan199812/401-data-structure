@@ -122,7 +122,7 @@ class Graph:
         """
         take list and return a boolean if all the list elements in the graph
         """
-        v = gs.get_tuple_vertex()
+        v = self.get_tuple_vertex()
         bool = False
         for l in nodes_list:
             if l in v:
@@ -139,7 +139,7 @@ class Graph:
         cost_list = []
         cost = 0
         v = 0
-        if found:
+        if found == True:
             if self.get_neighbors(trips[0]) == trips[1]:
                 print(found)
             for value in all_vertex:
@@ -160,9 +160,18 @@ class Graph:
                         cost_list.append(cost)
                         calc_weight(x, cost)
                         return cost_list[-1]
+        # if not calc_weight(v, cost) == None:
+                        
             return found,f'$ {calc_weight(v, cost)}'
         else:
             return False, "$0"
+
+#    if not calc_weight(v, cost) == None:
+#                 return found,f'$ {calc_weight(v, cost)}'
+                
+#         else:
+#                 return False, "$ 0"
+
 
 
 if __name__ == "__main__":

@@ -131,6 +131,28 @@ def test_BFS():
     actual = lst
     assert actual == expected
 
+    #=============Test business-trip
+def test_trip_one(trip):
+    trip1 = ['Pandora', 'Metroville']
+    actual = trip.business_trip(trip1)
+    expected = (True, '$ 82')
+    assert actual == expected
+
+def test_trip_two(trip):
+    trip2= ['Naboo', 'Pandor']
+    actual = trip.business_trip(trip2)
+    expected = (True,'$ None')
+    assert actual == expected
+
+def test_trip_three(trip):
+    trip3 = ["Narnia", "Arendelle", "Naboo"]
+    actual = trip.business_trip(trip3)
+    expected = (True,'$ None')
+    assert actual == expected
+
+
+
+
 @pytest.fixture
 def graph_1():
     g = Graph()
@@ -150,6 +172,41 @@ def graph_1():
     g.add_edge(node4, node1)
 
     return g
+
+@pytest.fixture
+
+def trip():
+    
+    gs = Graph()
+
+    Pandora = gs.add_node('Pandora')
+    Arendelle = gs.add_node('Arendelle')
+    Metroville = gs.add_node('Metroville')
+    Monstroplolis = gs.add_node('Monstroplolis')
+    Narnia = gs.add_node('Narnia')
+    Naboo = gs.add_node('Naboo')
+    
+    gs.add_edge(Pandora, Arendelle, 150)
+    gs.add_edge(Pandora, Metroville, 82)
+    gs.add_edge(Arendelle, Metroville, 99)
+    gs.add_edge(Arendelle, Monstroplolis, 42)
+    gs.add_edge(Monstroplolis, Naboo, 73)
+    gs.add_edge(Metroville, Monstroplolis, 105)
+    gs.add_edge(Metroville, Narnia, 37)
+    gs.add_edge(Metroville, Naboo, 26)
+    gs.add_edge(Narnia, Naboo, 26)
+    gs.add_edge( Arendelle, Pandora,150)
+    gs.add_edge( Metroville, Pandora, 82)
+    gs.add_edge( Metroville,Arendelle, 99)
+    gs.add_edge( Monstroplolis, Arendelle,42)
+    gs.add_edge( Naboo, Monstroplolis,73)
+    gs.add_edge( Monstroplolis, Metroville,105)
+    gs.add_edge(Narnia, Metroville, 37)
+    gs.add_edge( Naboo, Metroville,26)
+    gs.add_edge(Naboo,Narnia,  26)
+    
+    
+    return gs
 
 
 
