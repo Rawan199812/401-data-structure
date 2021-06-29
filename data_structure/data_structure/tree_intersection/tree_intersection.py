@@ -56,6 +56,6 @@ tree2.root.right.right = Node(10)
 # tree_intersection(tree1,tree2)
 tree3 = BinaryTree()
 tree4 =BinaryTree()
-print(tree_intersection(tree4,tree3))
+print(tree_intersection(tree2,tree1))
 
 

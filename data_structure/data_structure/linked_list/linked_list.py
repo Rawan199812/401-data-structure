@@ -104,6 +104,18 @@ class LinkedList ():
             return current.data
         except:
             return "The Value Not Found"
+    def __iter__(self):
+        if self.head:
+            saved_data = f"({ self.head.data})"
+            this_node = self.head
+            while this_node:
+                this_node = this_node.next_node
+                if  this_node:
+                    saved_data += "-> ""("f"{ this_node.data}"") "
+              
+        else:
+            return "Your Linked List still empty"
+        return saved_data
 
 
 
