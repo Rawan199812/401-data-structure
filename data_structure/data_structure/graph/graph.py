@@ -169,6 +169,25 @@ class Graph:
             return found,f'$ {calc_weight(v, cost)}'
         else:
             return False, "$0"
+    def DFS(self):
+        all_vertex = self.get_nodes()
+        lst = []
+        ## Get the first element 
+        root = next(iter(all_vertex))
+        def rec(root,lst):
+            if root not in lst:
+                lst.append(root)
+            neighbors = self.get_neighbors(root)
+            for i in neighbors:
+                if i.vertex in lst:
+                    pass    
+                else:
+                    lst.append(i.vertex)
+                    rec(i.vertex,lst)
+
+        if root:
+            rec(root,lst)
+        return lst
 
 
 
@@ -188,39 +207,62 @@ if __name__ == "__main__":
     # for i in n:
     #     print(i.vertex.value)
 
-    gs = Graph()
+    # gs = Graph()
 
-    Pandora = gs.add_node('Pandora')
-    Arendelle = gs.add_node('Arendelle')
-    Metroville = gs.add_node('Metroville')
-    Monstroplolis = gs.add_node('Monstroplolis')
-    Narnia = gs.add_node('Narnia')
-    Naboo = gs.add_node('Naboo')
+    # Pandora = gs.add_node('Pandora')
+    # Arendelle = gs.add_node('Arendelle')
+    # Metroville = gs.add_node('Metroville')
+    # Monstroplolis = gs.add_node('Monstroplolis')
+    # Narnia = gs.add_node('Narnia')
+    # Naboo = gs.add_node('Naboo')
     
-    gs.add_edge(Pandora, Arendelle, 150)
-    gs.add_edge(Pandora, Metroville, 82)
-    gs.add_edge(Arendelle, Metroville, 99)
-    gs.add_edge(Arendelle, Monstroplolis, 42)
-    gs.add_edge(Monstroplolis, Naboo, 73)
-    gs.add_edge(Metroville, Monstroplolis, 105)
-    gs.add_edge(Metroville, Narnia, 37)
-    gs.add_edge(Metroville, Naboo, 26)
-    gs.add_edge(Narnia, Naboo, 26)
-    gs.add_edge( Arendelle, Pandora,150)
-    gs.add_edge( Metroville, Pandora, 82)
-    gs.add_edge( Metroville,Arendelle, 99)
-    gs.add_edge( Monstroplolis, Arendelle,42)
-    gs.add_edge( Naboo, Monstroplolis,73)
-    gs.add_edge( Monstroplolis, Metroville,105)
-    gs.add_edge(Narnia, Metroville, 37)
-    gs.add_edge( Naboo, Metroville,26)
-    gs.add_edge(Naboo,Narnia,  26)
-    trip1 = ['Pandora', 'Metroville']
-    trip2= ['Naboo', 'Pandora']
-    trip3 = ['Arendelle', 'Monstroplolis', 'Naboo']
-    trip4 = ["Narnia", "Arendelle", "Naboo"]
+    # gs.add_edge(Pandora, Arendelle, 150)
+    # gs.add_edge(Pandora, Metroville, 82)
+    # gs.add_edge(Arendelle, Metroville, 99)
+    # gs.add_edge(Arendelle, Monstroplolis, 42)
+    # gs.add_edge(Monstroplolis, Naboo, 73)
+    # gs.add_edge(Metroville, Monstroplolis, 105)
+    # gs.add_edge(Metroville, Narnia, 37)
+    # gs.add_edge(Metroville, Naboo, 26)
+    # gs.add_edge(Narnia, Naboo, 26)
+    # gs.add_edge( Arendelle, Pandora,150)
+    # gs.add_edge( Metroville, Pandora, 82)
+    # gs.add_edge( Metroville,Arendelle, 99)
+    # gs.add_edge( Monstroplolis, Arendelle,42)
+    # gs.add_edge( Naboo, Monstroplolis,73)
+    # gs.add_edge( Monstroplolis, Metroville,105)
+    # gs.add_edge(Narnia, Metroville, 37)
+    # gs.add_edge( Naboo, Metroville,26)
+    # gs.add_edge(Naboo,Narnia,  26)
+    # trip1 = ['Pandora', 'Metroville']
+    # trip2= ['Naboo', 'Pandora']
+    # trip3 = ['Arendelle', 'Monstroplolis', 'Naboo']
+    # trip4 = ["Narnia", "Arendelle", "Naboo"]
     
-    print(gs.business_trip(trip3))
+    # print(gs.business_trip(trip3))
+
+
+    graph = Graph()
+    a = graph.add_node('a')
+    b = graph.add_node('b')
+    c = graph.add_node('c')
+    d = graph.add_node('d')
+    e = graph.add_node('e')
+    f = graph.add_node('f')
+    g = graph.add_node('g')
+    h = graph.add_node('h')
+    graph.add_edge(a,b)
+    graph.add_edge(a,d)
+    graph.add_edge(b,c)
+    graph.add_edge(b,d)
+    graph.add_edge(c,g)
+    graph.add_edge(d,e)
+    graph.add_edge(d,h)
+    graph.add_edge(d,f)
+    graph.add_edge(h,f)
+    dep = graph.DFS()
+    for i in dep:
+        print(i.value)
 
 
 
